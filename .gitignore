@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+#dangit man
+.idea
+.git
+pyvenv.cfg
+Scripts
+Lib
+__pycache__
