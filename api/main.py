@@ -16,9 +16,9 @@ def home():
     return 'lol'
 
 
-@app.route("/api")
-def api():
-    image = Image.open(io.BytesIO(base64.b64decode(request.args.get('base64').replace(' ', '+'))))
+@app.route("/api/<string:base>")
+def api(base):
+    image = Image.open(io.BytesIO(base64.b64decode(base.replace(' ', '+').replace('_+_+', '/'))))
     img_io = io.BytesIO()  # https://stackoverflow.com/questions/7877282/how-to-send-image-generated-by-pil-to-browser
     image.save(img_io, 'JPEG', quality=70)
     img_io.seek(0)
